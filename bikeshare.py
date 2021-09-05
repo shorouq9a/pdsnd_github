@@ -5,7 +5,6 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
-days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "all"]
 
 
 def get_filters():
@@ -35,7 +34,7 @@ def get_filters():
     # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input("\nNow choose the day you prefer 'monday, 'tuesday' ... 'sunday' or type 'all' to view all?\n").lower()
-        if day in days:
+        if day in ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "all"):
             break
         else:
             print("\n!!!, please type a day of the week")
