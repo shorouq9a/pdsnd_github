@@ -5,7 +5,6 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
-months = ["january", "february", "march", "april", "may", "june", "all"]
 days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "all"]
 
 
@@ -29,7 +28,7 @@ def get_filters():
     # get user input for month (all, january, february, ... , june)
     while True:
         month = input("\nChoose a month from january TO june, OR write 'all' to see the whole six months?\n").lower()
-        if month in months:
+        if month in ("january", "february", "march", "april", "may", "june", "all"):
             break
         else:
             print("\nSorry, you have to write the name of one of the six months")
@@ -64,6 +63,7 @@ def load_data(city, month, day):
     df["weekday"] = df["Start Time"].dt.day_name()
 
     if month != "all":
+        months=["january", "february", "march", "april", "may", "june"]
         month = months.index(month) +1
         df = df[df["month"] == month]
 
