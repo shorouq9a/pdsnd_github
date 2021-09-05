@@ -5,8 +5,6 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
-months = ["january", "february", "march", "april", "may", "june", "all"]
-days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "all"]
 
 
 def get_filters():
@@ -22,21 +20,21 @@ def get_filters():
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city = input("Which city do you want to analyze, please choose chicago, new york city or washington ?\n").lower()
-        if city in CITY_DATA:
+        if city in ('chicago','new york city','washington'):
             break
         else:
             print("\nPlease write the correct city name!")
     # get user input for month (all, january, february, ... , june)
     while True:
         month = input("\nChoose a month from january TO june, OR write 'all' to see the whole six months?\n").lower()
-        if month in months:
+        if month in ("january", "february", "march", "april", "may", "june", "all"):
             break
         else:
             print("\nSorry, you have to write the name of one of the six months")
     # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input("\nNow choose the day you prefer 'monday, 'tuesday' ... 'sunday' or type 'all' to view all?\n").lower()
-        if day in days:
+        if day in ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "all"):
             break
         else:
             print("\n!!!, please type a day of the week")
@@ -64,6 +62,7 @@ def load_data(city, month, day):
     df["weekday"] = df["Start Time"].dt.day_name()
 
     if month != "all":
+        months=["january", "february", "march", "april", "may", "june"]
         month = months.index(month) +1
         df = df[df["month"] == month]
 
