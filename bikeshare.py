@@ -156,7 +156,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-# function to display data 
+# function to display data
 def display_raw(df):
     raw = 0
     while True:
@@ -165,6 +165,7 @@ def display_raw(df):
             break
         elif msg == 'y':
             print(df[raw:raw+5])
+ # to add 5 rows from the data 
             raw += 5
         else:
             print("\nPlease enter 'y' OR 'n'")
